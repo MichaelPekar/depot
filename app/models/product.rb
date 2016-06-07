@@ -7,10 +7,13 @@ class Product < ActiveRecord::Base
                           message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'
                       }
 
-<<<<<<< HEAD
   has_many :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 
   private
 
@@ -23,9 +26,4 @@ class Product < ActiveRecord::Base
     end
   end
 end
-=======
-  def self.latest
-    Product.order(:updated_at).last
-  end
-end
->>>>>>> 36de00675fa236eea4f62a5e16652cd37df6a3d3
+
