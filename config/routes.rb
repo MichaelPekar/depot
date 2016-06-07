@@ -1,5 +1,11 @@
+<<<<<<< HEAD
+Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
+=======
 Depot::Application.routes.draw do
   get "store/index"
+>>>>>>> 982e0b938c42361b353433308b8d74d7d0b1a2a3
   resources :products
 # The priority is based upon order of creation:
 # (Приоритет основан на порядке создания:)
