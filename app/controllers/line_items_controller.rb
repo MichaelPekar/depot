@@ -12,6 +12,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+
   end
 
   # GET /line_items/new
@@ -26,8 +27,8 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    product = Product.find_by(id: params[:product_id])
+    @line_item = @cart.add_product(product.id)
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
