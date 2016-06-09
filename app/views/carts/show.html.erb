@@ -1,6 +1,3 @@
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
-
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
@@ -12,8 +9,12 @@
         <td><%= item.quantity %>&times;</td>
         <td><%= item.product.title %></td>
         <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+        <td><%= button_to 'Empty item', item, method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
+
+
   <tr class="total_line">
     <td colspan="2">Total</td>
     <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
@@ -21,4 +22,5 @@
 </table>
 
 <%= button_to 'Empty cart', @cart, method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Products list', store_index_path, method: :get  %>
