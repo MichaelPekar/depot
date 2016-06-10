@@ -1,3 +1,6 @@
+<button><%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %></button>
+
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
@@ -21,6 +24,6 @@
   </tr>
 </table>
 
-<%= button_to 'Empty cart', @cart, method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-<%= button_to 'Products list', store_index_path, method: :get  %>
+<button><%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<button><%= button_to 'Products list', store_index_path, method: :get  %></button>
+
